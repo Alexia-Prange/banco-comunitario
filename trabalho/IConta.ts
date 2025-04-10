@@ -1,7 +1,7 @@
 export interface IConta{
     saldo: number;
-    deposito(): void;
-    saque(): void;
-    transferencia(): void;
+    deposito(valor:number): void;
+    saque(valor: number): void;
+    transferencia(valor: number): void;
     verifivarSaldo(): void;
 }

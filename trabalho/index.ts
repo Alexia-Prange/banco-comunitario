@@ -10,6 +10,7 @@ if(C.salario >= 500){
     CC.deposito(20);
     CC.saque(10);
     CC.transferencia(100);
+    
 }else{
     C.exibir();
     const CP = new ContaPoupanca(100, 30);
