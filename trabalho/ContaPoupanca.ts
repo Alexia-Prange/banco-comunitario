@@ -9,6 +9,19 @@ export class ContaPoupanca implements IConta{
         this.taxajuros = taxaJuros;
     }
 
+    transferencia(valor: number, outroCliente: IConta): void {
+         if(valor > 0){
+            if(this.saldo > valor){
+                this.saldo = this.saldo - valor;
+                outroCliente.saldo += this.saldo;
+                console.log("Trasferência concluida")
+            }else{
+                console.log("Erro")
+            }
+        }
+
+    }
+
     deposito(valor: number): void {
         this.saldo = valor + this.saldo;
         console.log("Depósito feito")
@@ -19,10 +32,7 @@ export class ContaPoupanca implements IConta{
         console.log("Saque feito")
     }
 
-    transferencia(valor : number): void {
-        this.saldo = this.saldo - valor;
-        console.log("Trasferência concluida")
-    }
+    
 
     verifivarSaldo(): void {
         console.log("Saldo: " + this.saldo)

@@ -2,20 +2,23 @@ import { ContaCorrente } from "./ContaCorrente";
 import { ContaPoupanca } from "./ContaPoupanca";
 import { Cliente } from "./Cliente";
 
-const C = new Cliente("Kauan Fossa", 1, "Rua instituto, Bairro Federal", 992680293, 10000);
+const C1 = new Cliente("Kauan Fossa", 1, "Rua instituto, Bairro Federal", 992680293, 10000);
+const C2 = new Cliente("Alexia", 2, "Rua Pedro, bairro Progresso", 992034913, 700)
 
-if(C.salario >= 500){
-    C.exibir();
-    const CC = new ContaCorrente(800);
-    CC.deposito(20);
-    CC.saque(10);
-    CC.transferencia(100);
+const CC1 = new ContaCorrente(800, 100);
+const CC2 = new ContaPoupanca(100, 30);
+
+if(C1.salario >= 500){
+    CC1.deposito(20);
+    CC1.saque(10);
+    CC1.transferencia(100, CC2);
+    CC1.verifivarSaldo();
+    CC1.chequeEspecial();
     
 }else{
-    C.exibir();
-    const CP = new ContaPoupanca(100, 30);
-    CP.deposito(30);
-    CP.saque(40);
-    CP.transferencia(90);
-    CP.calcularTaxa();
+    CC2.deposito(30);
+    CC2.saque(40);
+    CC2.transferencia(90,CC1);
+    CC2.calcularTaxa();
+    CC2.verifivarSaldo();
 }
